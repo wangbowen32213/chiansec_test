@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://10.90.26.8/zentao/testcase-view-14067-1-testtask-189.html -->
+<html lang="zh-cn" class="os-windows screen-desktop-wide device-desktop not-firefox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道</title>
+<script>window.config={"webRoot":"\/zentao\/","debug":false,"appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/zentao\/theme\/","currentModule":"index","currentMethod":"index","clientLang":"zh-cn","requiredFields":"","router":"\/zentao\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+window.lang={"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","expand":"\u5c55\u5f00\u5168\u90e8","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+
+</script>
+<script>config.onlybody = "no";</script><link rel="stylesheet" href="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/zh-cn.default.css" type="text/css" media="screen">
+<script src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/all.js.下载"></script>
+<style>body {padding-left: 96px;}
+
+</style><link rel="icon" href="http://10.90.26.8/zentao/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://10.90.26.8/zentao/favicon.ico" type="image/x-icon">
+<!--[if lt IE 10]>
+<script src='/zentao/js/jquery/placeholder/min.js?v=16.0'></script>
+<![endif]-->
+</head>
+<body class="menu-show  m-index-index">
+<script>navGroup = {"my":"my","effort":"my","score":"my","todo":"my","program":"program","personnel":"program","product":"product","productplan":"product","release":"product","branch":"product","story":"product","project":"project","deploy":"project","programplan":"project","design":"project","stakeholder":"project","projectbuild":"project","projectstory":"project","review":"project","reviewissue":"project","pssp":"project","auditplan":"project","cm":"project","nc":"project","projectrelease":"project","build":"execution","measrecord":"project","milestone":"project","execution":"execution","task":"execution","team":"execution","kanbanspace":"kanban","kanban":"kanban","kanbanregion":"kanban","kanbanlane":"kanban","kanbancolumn":"kanban","kanbancard":"kanban","doc":"doc","doclib":"doc","api":"doc","report":"report","qa":"qa","bug":"qa","testcase":"qa","testtask":"qa","automation":"qa","testreport":"qa","testsuite":"qa","caselib":"qa","devops":"devops","repo":"devops","job":"devops","jenkins":"devops","mr":"devops","gitlab":"devops","compile":"devops","ci":"devops","svn":"devops","git":"devops","company":"system","attend":"attend","leave":"attend","makeup":"attend","overtime":"attend","lieu":"attend","admin":"admin","dept":"admin","user":"admin","group":"admin","webhook":"admin","sms":"admin","message":"admin","custom":"admin","cron":"admin","backup":"admin","mail":"admin","dev":"admin","entry":"admin","extension":"admin","action":"admin","search":"search","index":"index","tree":"tree","misc":"misc","upgrade":"upgrade","im":"admin","setting":"admin","client":"admin"};</script>
+<script>appsLang = {"open":"\u6253\u5f00","reload":"\u5237\u65b0","close":"\u5173\u95ed"};</script>
+<script>appsMenuItems = [{"group":"my","code":"my","active":false,"title":"<i class='icon icon-menu-my'><\/i> \u5730\u76d8","moduleName":"my","methodName":"index","vars":"","url":"\/zentao\/my\/"},{"group":"program","code":"program","active":false,"title":"<i class='icon icon-program'><\/i> \u9879\u76ee\u96c6","moduleName":"program","methodName":"browse","vars":"","url":"\/zentao\/program-browse.html"},{"group":"product","code":"product","active":false,"title":"<i class='icon icon-product'><\/i> \u4ea7\u54c1","moduleName":"product","methodName":"all","vars":"","url":"\/zentao\/product-all.html"},{"group":"project","code":"project","active":false,"title":"<i class='icon icon-project'><\/i> \u9879\u76ee","moduleName":"project","methodName":"browse","vars":"","url":"\/zentao\/project-browse.html"},{"group":"execution","code":"execution","active":false,"title":"<i class='icon icon-run'><\/i> \u6267\u884c","moduleName":"execution","methodName":"task","vars":"","url":"\/zentao\/execution-task.html"},{"group":"qa","code":"qa","active":false,"title":"<i class='icon icon-test'><\/i> \u6d4b\u8bd5","moduleName":"qa","methodName":"index","vars":"","url":"\/zentao\/qa\/"},{"group":"devops","code":"devops","active":false,"title":"<i class='icon icon-devops'><\/i> DevOps","moduleName":"repo","methodName":"browse","vars":"","url":"\/zentao\/repo-browse.html"},"divider",{"group":"doc","code":"doc","active":false,"title":"<i class='icon icon-doc'><\/i> \u6587\u6863","moduleName":"doc","methodName":"index","vars":"","url":"\/zentao\/doc\/"},{"group":"report","code":"report","active":false,"title":"<i class='icon icon-statistic'><\/i> \u7edf\u8ba1","moduleName":"report","methodName":"productSummary","vars":"","url":"\/zentao\/report-productSummary.html"},{"group":"system","code":"system","active":false,"title":"<i class='icon icon-group'><\/i> \u7ec4\u7ec7","moduleName":"my","methodName":"team","vars":"","url":"\/zentao\/my-team.html"},"divider",{"group":"admin","code":"admin","active":false,"title":"<i class='icon icon-cog-outline'><\/i> \u540e\u53f0","moduleName":"admin","methodName":"index","vars":"","url":"\/zentao\/admin\/"}];</script>
+<script>defaultOpen = "";</script>
+<script>manualText = "\u624b\u518c";</script>
+<script>manualUrl = "https:\/\/www.zentao.net\/book\/zentaopmshelp.html?fullScreen=zentao&theme=default";</script>
+<script>showFeatures = false;</script>
+<style>
+#versionTitle {margin: 8px 3px 0px 0px; background-image: url(/zentao/theme/default/images/main/version-upgrade.svg);}
+.icon-version {width: 20px; height: 24px; margin: -4px 3px 0px 0px; background-image: url(/zentao/theme/default/images/main/version-new.svg);}
+.version-hr {margin-top: 15px; margin-bottom: 15px;}
+
+
+</style>
+<div id="menu">
+  <nav id="menuNav">
+    <ul class="nav nav-default" id="menuMainNav"><li data-app="my"><a data-pos="menu" data-app="my" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-menu-my"></i><span class="text">地盘</span></a></li><li data-app="program"><a data-pos="menu" data-app="program" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-program"></i><span class="text">项目集</span></a></li><li data-app="product" class=""><a data-pos="menu" data-app="product" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-product"></i><span class="text">产品</span></a></li><li data-app="project" class=""><a data-pos="menu" data-app="project" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-project"></i><span class="text">项目</span></a></li><li data-app="execution" class=""><a data-pos="menu" data-app="execution" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-run"></i><span class="text">执行</span></a></li><li data-app="qa" class="active"><a data-pos="menu" data-app="qa" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-test"></i><span class="text">测试</span></a></li><li data-app="devops"><a data-pos="menu" data-app="devops" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-devops"></i><span class="text num">DevOps</span></a></li><li class="divider"></li><li data-app="doc"><a data-pos="menu" data-app="doc" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-doc"></i><span class="text">文档</span></a></li><li data-app="report"><a data-pos="menu" data-app="report" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-statistic"></i><span class="text">统计</span></a></li><li data-app="system"><a data-pos="menu" data-app="system" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-group"></i><span class="text">组织</span></a></li><li class="divider"></li><li data-app="admin"><a data-pos="menu" data-app="admin" data-toggle="tooltip" class="show-in-app" data-original-title="" title=""><i class="icon icon-cog-outline"></i><span class="text">后台</span></a></li></ul>
+    <ul class="nav nav-default" id="menuMoreNav">
+      <li class="divider"></li>
+      <li class="dropdown dropdown-hover">
+        <a title="更多"><i class="icon icon-more-circle"></i><span class="text">更多</span></a>
+        <ul id="menuMoreList" class="dropdown-menu fade" style="max-height: initial;"></ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="table-col col-right">
+    <div id="moreExecution" class="more-execution-show" data-ride="searchList">
+      <div class="input-control search-box has-icon-left has-icon-right search-example">
+        <input id="userSearchBox" type="search" autocomplete="off" class="form-control search-input empty">
+        <label for="userSearchBox" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>
+        <a class="input-control-icon-right search-clear-btn"><i class="icon icon-close icon-sm"></i></a>
+      </div>
+      <div class="list-group" id="executionList"></div>
+    </div>
+  </div>
+  <div id="menuFooter">
+    <ul id="flodNav" class="nav">
+      <li id="menuToggleMenu">
+        <a class="menu-toggle" data-collapse-text="收起导航" data-unfold-text="展开导航" data-toggle="tooltip" data-original-title="" title="">
+          <i class="icon icon-sm icon-menu-collapse"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="apps">
+<div class="app-container" id="app-qa" style="z-index: 103;"><iframe id="appIframe-qa" name="app-qa" allowfullscreen="true" frameborder="no" allowtransparency="true" scrolling="auto" style="width: 100%; height: 100%; left: 0px;" src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/saved_resource.html"></iframe></div><div class="app-container" id="app-execution" style="z-index: 86;"><iframe id="appIframe-execution" name="app-execution" allowfullscreen="true" frameborder="no" allowtransparency="true" scrolling="auto" style="width: 100%; height: 100%; left: 0px;" src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/saved_resource(1).html"></iframe></div><div class="app-container" id="app-project" style="z-index: 68;"><iframe id="appIframe-project" name="app-project" allowfullscreen="true" frameborder="no" allowtransparency="true" scrolling="auto" style="width: 100%; height: 100%; left: 0px;" src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/saved_resource(2).html"></iframe></div><div class="app-container" id="app-product" style="z-index: 67;"><iframe id="appIframe-product" name="app-product" allowfullscreen="true" frameborder="no" allowtransparency="true" scrolling="auto" style="width: 100%; height: 100%; left: 0px;" src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/saved_resource(3).html"></iframe></div></div>
+<div id="appsBar">
+  <ul id="bars" class="nav nav-default"><li data-app="qa" id="appBar-qa" class="active"><a data-pos="bar" data-app="qa" class="show-in-app"><span>测试</span></a></li><li class="divider"></li><li data-app="execution" id="appBar-execution" class=""><a data-pos="bar" data-app="execution" class="show-in-app"><span>执行</span></a></li><li class="divider"></li><li data-app="project" id="appBar-project" class=""><a data-pos="bar" data-app="project" class="show-in-app"><span>项目</span></a></li><li class="divider"></li><li data-app="product" id="appBar-product" class=""><a data-pos="bar" data-app="product" class="show-in-app"><span>产品</span></a></li></ul>
+  <div id="poweredBy">
+    <div id="globalBarLogo">
+      <a href="javascript:void(0)" id="proLink" class="btn btn-link" style="color: #B57D4F;"><span class="upgrade">专业版</span> <i class="text-danger icon-pro-version"></i></a>
+      <a href="https://www.zentao.net/" class="btn btn-sm btn-link" target="_blank" title="16.0">
+        <i class="icon icon-zentao" style="font-size: 24px;"></i>
+        <span class="version">开源版16.0</span>
+      </a>
+      <a href="javascript:void(0)" id="chatBtn" class="btn btn-link"><i class="text-primary icon icon-chat-solid"></i><span class="badge bg-red" id="chatNoticeBadge"></span></a><div id="globalSearchDiv">
+        <div class="input-group">
+          <div id="searchbox">
+            <div class="input-group-btn"><input type="hidden" name="searchType" id="searchType" value="bug">
+</div>          <ul id="searchTypeMenu" class="dropdown-menu" style="display: none;"><li class="search-type-all"><a href="javascript:$.setSearchType(&quot;all&quot;);" data-value="all" data-name="全部">全部</a></li><li class="selected"><a href="javascript:$.setSearchType(&quot;bug&quot;);" data-value="bug" data-name="Bug">Bug</a></li><li><a href="javascript:$.setSearchType(&quot;story&quot;);" data-value="story" data-name="需求">需求</a></li><li><a href="javascript:$.setSearchType(&quot;task&quot;);" data-value="task" data-name="任务">任务</a></li><li><a href="javascript:$.setSearchType(&quot;testcase&quot;);" data-value="testcase" data-name="用例">用例</a></li><li><a href="javascript:$.setSearchType(&quot;product&quot;);" data-value="product" data-name="产品">产品</a></li><li><a href="javascript:$.setSearchType(&quot;build&quot;);" data-value="build" data-name="版本">版本</a></li><li><a href="javascript:$.setSearchType(&quot;release&quot;);" data-value="release" data-name="发布">发布</a></li><li><a href="javascript:$.setSearchType(&quot;productplan&quot;);" data-value="productplan" data-name="产品计划">产品计划</a></li><li><a href="javascript:$.setSearchType(&quot;testtask&quot;);" data-value="testtask" data-name="测试单">测试单</a></li><li><a href="javascript:$.setSearchType(&quot;doc&quot;);" data-value="doc" data-name="文档">文档</a></li><li><a href="javascript:$.setSearchType(&quot;caselib&quot;);" data-value="caselib" data-name="用例库">用例库</a></li><li><a href="javascript:$.setSearchType(&quot;testreport&quot;);" data-value="testreport" data-name="测试报告">测试报告</a></li><li><a href="javascript:$.setSearchType(&quot;program-product&quot;);" data-value="program-product" data-name="项目集">项目集</a></li><li><a href="javascript:$.setSearchType(&quot;project&quot;);" data-value="project" data-name="项目">项目</a></li><li><a href="javascript:$.setSearchType(&quot;execution&quot;);" data-value="execution" data-name="迭代">迭代</a></li><li><a href="javascript:$.setSearchType(&quot;user&quot;);" data-value="user" data-name="用户">用户</a></li></ul></div>
+          <div class="input-control search-box search-box-circle has-icon-left has-icon-right search-example" id="searchboxExample">
+            <input id="globalSearchInput" type="search" onclick="this.value=&#39;&#39;" onkeydown="if(event.keyCode==13) $.gotoObject();" class="form-control search-input" placeholder="请输入" autocomplete="off" style="border-radius: 2px 0px 0px 2px;">
+          </div>
+          <span class="input-group-btn" onclick="javascript:$.gotoObject();">
+            <button id="globalSearchButton" class="btn btn-secondary" type="button" style="border-radius: 0px 2px 2px 0px; border-left-color: transparent;"><i class="icon icon-search"></i></button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div id="upgradeContent" class="main-table" style="display: none;">
+      <div class="main-header" style="padding: 5px 20px 5px 15px;">
+        <i class="version-upgrade" id="versionTitle"></i>
+        <h2>
+          可升级版本   
+		
+通用敏感数据	日期	"2023/4/19"				
+							
+设备敏感信息	JDBC连接串	"jdbc:mysql://localhost:3306/test?user=root&password=&useUnicode=true&characterEncoding=gbk&autoReconnect=true&failOverReadOnly=false"										
+设备敏感信息	IMEI	"35-300109-960506-6"								
+设备敏感信息	私网IPv4地址	"192.168.80.126"				
+设备敏感信息	公网IPv4地址	"103.186.80.22"				
+设备敏感信息	MAC地址	"70-B5-E8-72-C2-10"				
+设备敏感信息	MAC地址	"70 B5 E8 72 C2 10"				
+设备敏感信息	MAC地址	"70:B5:E8:72:C2:10"						
+设备敏感信息	URL链接	"https://ztp.zt.chiansec.com/ztpms/#/DataSecurity/DataPolicy/DataDictionary?tab=dictionary"				
+设备敏感信息	URL链接	"/data/chiansec/ztpSevenGW/nginx/sbin"				
+个人敏感信息	车辆识别代码	"LFV3A24G5C3090044"							
+个人敏感信息	车牌号（中国内地）	"京N8P8F8"				
+个人敏感信息	宗教信仰	"佛教"				
+个人敏感信息	宗教信仰	"基督教"				
+个人敏感信息	宗教信仰	"伊斯兰教教"							
+个人敏感信息	军官证	"南3045172"				
+个人敏感信息	军官证	"南304517"								
+个人敏感信息	护照号（中国内地）	"EF1260892"				
+个人敏感信息	护照号（中国内地）	"**1260892"								
+个人敏感信息	民族	"蒙古族"				
+个人敏感信息	民族	"回族"				
+个人敏感信息	民族	"满族"				
+个人敏感信息	民族	"藏族"			
+个人敏感信息	邮箱	"zhonghuahua@chiansec.com"				
+个人敏感信息	邮箱	"123@qq.com"				
+个人敏感信息	邮箱	"345@163.com"				
+个人敏感信息	邮箱	"ee@126.com"							
+个人敏感信息	SSN	"123-11-4532"							
+个人敏感信息	性别	"：女"				
+个人敏感信息	性别	"：男"								
+
+手机号-内地		手机号："19810431042			
+个人敏感信息	身份证（中国香港）	"A123456(0)"				
+				
+个人敏感信息	电话号码（中国内地）	"(010)56108397"				
+个人敏感信息	电话号码（中国内地）	"010-56108397"				
+							
+位置敏感信息	省份（中国内地）	"河南省"							
+位置敏感信息	省份（中国内地）	"内蒙古自治区"				
+位置敏感信息	省份（中国内地）	"北京市"				
+位置敏感信息	省份（中国内地）	"黑龙江省"				
+位置敏感信息	省份（中国内地）	"香港特别行政区"				
+位置敏感信息	省份（中国内地）	"澳门特别行政区"								
+位置敏感信息	GPS位置	"北纬80.90度,东经123.40度"	
+											
+密钥敏感信息	OpenAI APIkey	"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"				
+密钥敏感信息	GitHub 个人访问令牌	"ghp_lkyJGU3jv1xmwk4SDXavrLDJ4dl2pSJMzj4X"				
+密钥敏感信息	Bearer Token	"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODAxNjIxNTR9.U9orU6YYqXAtpF8uAiw6MS553tm4XxRzxOhz2IwDhpY"				
+密钥敏感信息	AccessKeyId	"AKIDW3web9wvWS5X53AzK3B7t0KXriGgblUH"	
+			
+报错敏感信息	Mysql报错信息	"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘'1'' LIMIT 0,1’ at line 1。"				
+报错敏感信息	Oracle报错信息	"ORA-00942 table or view does not existd"				
+报错敏感信息	SQL Server报错信息	"Microsoft SQL Native Client error ‘80040e14’Unclosed quotation mark after the character string\nSELECT id, name FROM users WHERE id=1 UNION SELECT 1, @@version limit 1, 1"				
+报错敏感信息	PHP报错信息	"Warning: include_once(./include/main.inc.php) [function.include-once]: failed to open stream: failed to open stream: No such file or directory in"				
+报错敏感信息	Fastjson报错信息	"Exception in thread \\\"\\\"main\\\"\\\" com.alibaba.fastjson.JSONException: exepct '[', but ,, pos 42, json : {\\\"\\\"@type\\\"\\\":\\\"\\\"[com.sun.rowset.JdbcRowSetImpl\\\"\\\",\\\"\\\"dataSourceName\\\"\\\":\\\"\\\"ldap://localhost:1389/badNameClass\\\"\\\", \\\"\\\"autoCommit\\\"\\\":true}\\n    at com.alibaba.fastjson.parser.DefaultJSONParser.parseArray(DefaultJSONParser.java:675)\\n    at com.alibaba.fastjson.serializer.ObjectArrayCodec.deserialze(ObjectArrayCodec.java:183)\\n    at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:373)\\n    at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1338)\\n    at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1304)\\n    at com.alibaba.fastjson.JSON.parse(JSON.java:152)\\n    at com.alibaba.fastjson.JSON.parse(JSON.java:162)\\n    at com.alibaba.fastjson.JSON.parse(JSON.java:131)\\n    at NEW_JNDIClient.main(NEW_JNDIClient.java:8)\\"				
+报错敏感信息	Nginx报错信息	"<html>\n<head><title>404 Not Found<\/title><\/head>\n<body>\n<center><h1>404 Not Found<\/h1><\/center>\n<hr><center>nginx/1.8.0<\/center>\n<\/body>\n<\/html>"				
+报错敏感信息	Apache报错信息	"AH01276: Cannot serve directory \/var\/www/html\/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive"				
+"data":
+            {
+                "message": [],
+                "total": 0,
+                "api_path":"{}".format(user_name),
+                "name":"张三，李四，王五",
+                "phone": "14834113307,13868645867",
+                "phone2":"13919996470,18906503900",
+                "email":"123@163.com,google@asdas.com",
+                "email2":"456@163.com,dsadfag@qq.com",
+                "ID":"110101199108157236,13010319980426041X",
+                "Bank_card":"6222027183530478298,6222024493338009203",
+                "yapi":"Mockjs",
+                "yapi_geren":"yapi",
+                "yapi_weizhi":"username",
+                "yapi_shebei":"test",
+                "yapi_qiye":"enterprise",
+                "yapi_all":"python",
+                "yapi_api":"mock",
+                "YApi":"YApi",
+                "test-user":"test-user",
+                "ruomima":"111,222,333,444,555,666,777,123456,，version，test"
+            }
+		  </h2>
+      </div>
+      <div id="latestVersionList">
+                <div class="version-content">
+                              <div class="version-list">
+            <div>
+              <i class="version-upgrade icon-version"></i>
+              <h4>禅道IPD版1.1</h4>
+            </div>
+            <div class="version-detail">禅道IPD版1.1发布啦，新增市场管理功能，内置海量度量项，支持百度文心一言，DevOps平台优化！</div>
+            <div class="version-footer">
+              <a href="http://10.90.26.8/zentao/index-changeLog-ipd1.1.html" class="btn btn-link iframe" data-width="800">查看版本更新日志 &gt;</a>
+              <a href="https://www.zentao.net/download/ipd1.1-83017.html" class="btn btn-primary upgrade-now" style="color: white;" target="_blank">现在升级</a>
+            </div>
+          </div>
+                    <hr class="version-hr">
+                              <div class="version-list">
+            <div>
+              <i class="version-upgrade icon-version"></i>
+              <h4>禅道旗舰版4.8</h4>
+            </div>
+            <div class="version-detail">禅道旗舰版4.8发布啦，内置海量度量项，支持百度文心一言，DevOps平台优化，新增禅道月度健康度体检大屏！</div>
+            <div class="version-footer">
+              <a href="http://10.90.26.8/zentao/index-changeLog-max4.8.html" class="btn btn-link iframe" data-width="800">查看版本更新日志 &gt;</a>
+              <a href="https://www.zentao.net/download/max4.8-83016.html" class="btn btn-primary upgrade-now" style="color: white;" target="_blank">现在升级</a>
+            </div>
+          </div>
+                    <hr class="version-hr">
+                              <div class="version-list">
+            <div>
+              <i class="version-upgrade icon-version"></i>
+              <h4>禅道企业版8.8</h4>
+            </div>
+            <div class="version-detail">禅道企业版8.8发布啦，内置海量度量项，支持百度文心一言，DevOps平台优化，新增禅道月度健康度体检大屏！</div>
+            <div class="version-footer">
+              <a href="http://10.90.26.8/zentao/index-changeLog-biz8.8.html" class="btn btn-link iframe" data-width="800">查看版本更新日志 &gt;</a>
+              <a href="https://www.zentao.net/download/biz8.8-83015.html" class="btn btn-primary upgrade-now" style="color: white;" target="_blank">现在升级</a>
+            </div>
+          </div>
+                    <hr class="version-hr">
+                              <div class="version-list">
+            <div>
+              <i class="version-upgrade icon-version"></i>
+              <h4>禅道18.8</h4>
+            </div>
+            <div class="version-detail">禅道18.8发布啦，内置海量度量项，支持百度文心一言，DevOps平台优化！</div>
+            <div class="version-footer">
+              <a href="http://10.90.26.8/zentao/index-changeLog-18.8.html" class="btn btn-link iframe" data-width="800">查看版本更新日志 &gt;</a>
+              <a href="https://www.zentao.net/download/zentaopms18.8-83014.html" class="btn btn-primary upgrade-now" style="color: white;" target="_blank">现在升级</a>
+            </div>
+          </div>
+                            </div>
+              </div>
+    </div>
+  </div>
+</div>
+<script>searchAB = "\u641c\u7d22";</script>
+<script>searchObjectList = ",all,bug,story,task,testcase,product,build,release,productplan,testtask,doc,caselib,testreport,program,project,execution,user,";</script>
+<script>searchCommon = "\u641c\u7d22";</script>
+
+<script>
+(function()
+{
+    if(showFeatures)
+    {
+        /* Show features dialog. */
+        new $.zui.ModalTrigger({url: $.createLink('misc', 'features'), type: 'iframe', width: 900, showHeader: false, backdrop: 'static'}).show();
+    }
+
+    /* Init variables */
+    var openedApps      = {}; // Key-value to save appCode-app pairs
+    var appsMap         = {}; // Key-value to save opened appCode-app pairs
+    var openedAppZIndex = 10; // Last opened app z-index
+    var defaultApp;           // Default app code
+    var lastOpenedApp;        // Last opened app code
+
+    /**
+     * Init apps menu list
+     */
+    function initAppsMenu()
+    {
+        var $helpLink = $('#helpLink');
+        appsMap.help =
+        {
+            code:     'help',
+            icon:     'icon-help',
+            url:      manualUrl || $helpLink.attr('href'),
+            external: true,
+            text:     manualText || $helpLink.text(),
+            appUrl:  config.webRoot + '#app=help'
+        };
+        var $menuMainNav = $('#menuMainNav').empty();
+        window.appsMenuItems.forEach(function(item)
+        {
+            if(item === 'divider') return $menuMainNav.append('<li class="divider"></li>');
+
+            var $link= $('<a data-pos="menu"></a>')
+                .attr('data-app', item.code)
+                .attr('data-toggle', 'tooltip')
+                .attr('class', 'show-in-app')
+                .html(item.title);
+
+            item.icon = ($link.find('.icon').attr('class') || '').replace('icon ', '');
+            item.text = $link.text().trim();
+            $link.html('<i class="icon ' + item.icon + '"></i><span class="text">' + item.text + '</span>');
+            if(item.code === 'devops') $link.find('.text').addClass('num');
+            appsMap[item.code] = item;
+
+            $('<li></li>').attr('data-app', item.code)
+                .append($link)
+                .appendTo($menuMainNav);
+
+            $link.tooltip({title: item.text, container: 'body', placement: 'right', tipClass: 'menu-tip'});
+
+            if(!defaultApp) defaultApp = item.code;
+        });
+
+        appsMap['search'] =
+        {
+            opened:     false,
+            code:       'search',
+            group:      'search',
+            icon:       'icon-search',
+            methodName: 'index',
+            moduleName: 'search',
+            text:       searchCommon,
+            title:      '<i class="icon icon-search"></i> ' + searchCommon,
+            url:        '/index.php?m=search&f=index',
+            vars:       ''
+        };
+    }
+
+    /**
+     * Get app code from url
+     * @param {String} urlOrModuleName Url string
+     * @return {String}
+     */
+    function getAppCodeFromUrl(urlOrModuleName)
+    {
+        var code = window.navGroup[urlOrModuleName];
+        if(code) return code;
+
+        var link = $.parseLink(urlOrModuleName);
+        if(!link.moduleName || link.isOnlyBody || (link.moduleName === 'index' && link.methodName === 'index')) return '';
+
+        if(link.hash && link.hash.indexOf('app=') === 0) return link.hash.substr(4);
+
+        /* Handling special situations */
+        var moduleName      = link.moduleName;
+        var methodName      = link.methodName;
+        if (moduleName === 'index' && methodName === 'index') return 'my';
+
+        var methodLowerCase = methodName.toLowerCase();
+        if(moduleName === 'doc')
+        {
+            if(link.prj) return 'project';
+
+            if((link.params.from || link.params.$3) == 'product')
+            {
+                if(['objectlibs', 'showfiles', 'browse', 'view', 'edit', 'delete', 'create'].includes(methodLowerCase)) return 'product';
+            }
+            return 'doc';
+        }
+        if(['caselib', 'testreport', 'testsuite', 'testtask', 'testcase', 'bug', 'qa'].includes(moduleName))
+        {
+            return link.prj ? 'project' : 'qa';
+        }
+        if(moduleName === 'report')
+        {
+            if(['usereport', 'editreport', 'deletereport', 'custom'].includes(methodLowerCase) && link.params.from)
+            {
+                return 'system';
+            }
+            else
+            {
+                return link.prj ? 'project' : 'report';
+            }
+        }
+        if(moduleName === 'story' && methodLowerCase === 'zerocase')
+        {
+            return link.params.from == 'project' ? 'project' : 'qa';
+        }
+        if(moduleName === 'execution' && methodLowerCase === 'all')
+        {
+            return (link.params.from || link.params.$3) == 'project' ? 'project' : 'execution';
+        }
+        if(moduleName === 'issue' || moduleName === 'risk' || moduleName === 'opportunity' || moduleName === 'pssp' || moduleName === 'auditplan' || moduleName === 'meeting' || moduleName === 'nc')
+        {
+            if(link.params.$2 == 'my' || link.params.from == 'my') return 'my';
+            if(link.params.$2 == 'project' || link.params.from == 'project') return 'project';
+            if(link.params.$2 == 'execution' || link.params.from == 'execution') return 'execution';
+        }
+        if(moduleName === 'product')
+        {
+            if(methodLowerCase === 'create' && (link.params.programID || link.params.$1)) return 'program';
+            if(methodLowerCase === 'edit' && (link.params.programID || link.params.$4)) return 'program';
+            if(methodLowerCase === 'batchedit') return 'program';
+            var moduleGroup = link.params.moduleGroup ? link.params.moduleGroup : link.params.$2;
+            if(methodLowerCase === 'showerrornone' && (moduleGroup || moduleGroup)) return moduleGroup;
+        }
+        if(moduleName === 'stakeholder')
+        {
+            if(methodLowerCase === 'create' && (link.params.programID || link.params.$1)) return 'program';
+        }
+        if(moduleName === 'user')
+        {
+            if(['todo', 'todocalendar', 'effortcalendar', 'effort', 'task', 'todo', 'story', 'bug', 'testtask', 'testcase', 'execution', 'dynamic', 'profile', 'view', 'issue', 'risk'].includes(methodLowerCase)) return 'system';
+        }
+        if(moduleName === 'my')
+        {
+            if(['team'].includes(methodLowerCase)) return 'system';
+        }
+        if(moduleName === 'company') if(methodLowerCase == 'browse') return 'admin';
+        if(moduleName === 'opportunity' || moduleName === 'risk' || moduleName == 'trainplan') if(methodLowerCase == 'view') return 'project';
+        if(moduleName === 'tree')
+        {
+            if(methodLowerCase === 'browse')
+            {
+                var viewType = link.params.view || link.params.$2;
+                if(['bug', 'case', 'caselib'].includes(viewType)) return link.params.$5 === 'project' ? 'project' : 'qa';
+
+                if(viewType === 'doc' && (link.params.from === 'product' || link.params.$5 == 'product')) return 'product';
+                if(viewType === 'doc' && (link.params.from === 'project' || link.params.$5 == 'project')) return 'project';
+                if(viewType === 'doc')   return 'doc';
+                if(viewType === 'story') return 'product';
+            }
+            else if(methodLowerCase === 'browsetask')
+            {
+                return 'project';
+            }
+        }
+        if(moduleName === 'search' && methodLowerCase === 'buildindex') return 'admin';
+
+        code = window.navGroup[moduleName] || moduleName || urlOrModuleName;
+        return appsMap[code] ? code : '';
+    }
+
+    /**
+     * Open tab of app
+     * @param {string} [url]   Url to open
+     * @param {string} [appCode] The code of target app to open
+     * @return {void}
+     */
+    function openTab(url, appCode)
+    {
+        /* Check params */
+        if(!appCode)
+        {
+            if(appsMap[url])
+            {
+                appCode = url;
+                url     = '';
+            }
+            else
+            {
+                appCode = getAppCodeFromUrl(url);
+                if(!appCode) return false;
+            }
+        }
+
+        /* Create pate app object and store it */
+        var app = openedApps[appCode];
+        if(app)
+        {
+            if(app.$iframe && app.$iframe.length)
+            {
+                var iframe = app.$iframe[0];
+                if(iframe && iframe.contentDocument && iframe.contentWindow && iframe.contentWindow.$)
+                {
+                    var result = iframe.contentWindow.$(iframe.contentDocument).triggerHandler('openapp.apps', [app, url]);
+                    if (result === false) {
+                        return 'cancel';
+                    }
+                }
+            }
+        }
+        else
+        {
+            var $iframe = $(
+            [
+                '<iframe',
+                    'id="appIframe-' + appCode + '"',
+                    'name="app-' + appCode + '"',
+                    'allowfullscreen="true"',
+                    'frameborder="no"',
+                    'allowtransparency="true"',
+                    'scrolling="auto"',
+                    'style="width: 100%; height: 100%; left: 0px;"',
+                '/>'
+            ].join(' '));
+            var $app = $('<div class="app-container" id="app-' + appCode + '"></div>')
+                .append($iframe)
+                .appendTo('#apps');
+
+            app = $.extend({$iframe: $iframe, $app: $app, code: appCode, opened: true}, appsMap[appCode]);
+            openedApps[appCode] = app;
+
+            /* If first show without url, then use the default url */
+            if(!url) url = appsMap[appCode].url;
+
+            var iframe = $iframe.get(0);
+            iframe.onload = iframe.onreadystatechange = function(e)
+            {
+                $app.trigger('loadapp', app);
+            };
+        }
+
+        /* Set tab cookie */
+        $.cookie('tab', appCode, {expires: config.cookieLife, path: config.webRoot});
+
+        /* Highlight at main menu */
+        var $menuMainNav   = $('#menuMainNav,#menuMoreNav');
+        var $lastActiveNav = $menuMainNav.find('li.active');
+        if($lastActiveNav.data('app') !== appCode)
+        {
+            $lastActiveNav.removeClass('active');
+            $menuMainNav.find('li[data-app="' + appCode + '"]').addClass('active');
+        }
+
+        /* Show page app and update iframe source */
+        if(url) reloadApp(appCode, url, true);
+        app.zIndex = openedAppZIndex++;
+        app.$app.show().css('z-index', app.zIndex);
+
+        /* Update task bar */
+        var $bars = $('#bars');
+        var $bar  = $('#appBar-' + appCode);
+        if(!$bar.length)
+        {
+            var $link= $('<a data-pos="bar"></a>')
+                .attr('data-app', appCode)
+                .attr('class', 'show-in-app')
+                .html('<span>' + app.text + '</span>');
+            var barCount = $('#bars li').length;
+
+            if(barCount) $bar = $('<li class="divider"></li>').appendTo($bars);
+            $bar = $('<li></li>').attr('data-app', appCode)
+                .attr('id', 'appBar-' + appCode)
+                .append($link)
+                .appendTo($bars);
+        }
+        var $lastActiveBar = $bars.find('li.active');
+        if($lastActiveBar.data('app') !== appCode)
+        {
+            $lastActiveBar.removeClass('active');
+            $bars.find('li[data-app="' + appCode + '"]').addClass('active');
+        }
+        app.$bar = $bar;
+
+        /* Update others app state */
+        for(var theCode in openedApps)
+        {
+            if(theCode !== appCode) openedApps[theCode].show = false;
+        }
+
+        /* Update current app state */
+        app.show = true;
+        if(lastOpenedApp !== appCode)
+        {
+            lastOpenedApp = appCode;
+            updateAppUrl(appCode, null, null, true);
+        }
+
+        app.$app.trigger('showapp', app);
+
+        return true;
+    }
+
+    /**
+     * Get last opened app
+     * @param {boolean} [onlyShowed] If set to true then only get last app from apps are showed
+     * @returns {object} The opened app info object
+     */
+    function getLastApp(onlyShowed)
+    {
+        var lastShowIndex = 0;
+        var lastApp = null;
+        for(var appCode in openedApps)
+        {
+            var app = openedApps[appCode];
+            if((!onlyShowed || app.show) && lastShowIndex < app.zIndex && !app.closed)
+            {
+                lastShowIndex = app.zIndex;
+                lastApp = app;
+            }
+        }
+        return lastApp;
+    }
+
+    /**
+     * Hide app
+     * @param {string} appCode The app code of target app to hide
+     * @return {void}
+     */
+    function hideTab(appCode)
+    {
+        var app = openedApps[appCode];
+        if(!app || !app.show) return;
+
+        app.$app.hide();
+        app.show = false;
+        lastOpenedApp = null;
+
+        app.$app.trigger('hideapp', app);
+
+        /* Active last app */
+        var lastApp = getLastApp(true) || getLastApp();
+        showTab(lastApp ? lastApp.code : defaultApp);
+    }
+
+    /**
+     * Show tab of app
+     * @param {string} appCode The app code of target app to show
+     * @return {void}
+     */
+    function showTab(appCode)
+    {
+        return openTab('', appCode);
+    }
+
+    /**
+     * Toggle app
+     * @param {string} appCode The app code of target app to toggle
+     * @return {void}
+     */
+    function toggleApp(appCode)
+    {
+        var app = openedApps[appCode];
+        if(!app || app.code !== lastOpenedApp) showTab(appCode);
+        else hideTab(appCode);
+    }
+
+    /**
+     * Close app
+     * @param {string} appCode The app code of target app to close
+     */
+    function closeApp(appCode)
+    {
+        appCode = appCode || lastOpenedApp;
+        var app = openedApps[appCode];
+        if(!app) return;
+
+        if(app.$iframe && app.$iframe.length)
+        {
+            var iframe = app.$iframe[0];
+            if(iframe && iframe.contentDocument && iframe.contentWindow && iframe.contentWindow.$)
+            {
+                var result = iframe.contentWindow.$(iframe.contentDocument).triggerHandler('closeapp.apps', [app]);
+                if (result === false) {
+                    return 'cancel';
+                }
+            }
+        }
+
+        var appKeys = Object.keys(openedApps)
+        if(appKeys[0] == appCode)
+        {
+            $("#bars li.divider:first").remove();
+        }
+        else
+        {
+            $("#appBar-" + appCode).prev().remove();
+        }
+
+        app.closed = true;
+        hideTab(appCode);
+        app.$app.remove();
+        app.$bar.remove();
+        delete openedApps[appCode];
+
+        var firstClass = $("#bars li:first").attr('class');
+        if(firstClass == 'divider') $("#bars li.divider:first").remove();
+
+        app.$app.trigger('closeapp', app);
+    }
+
+    /**
+     * Reload app
+     * @param {string}         appCode           The app code of target app to reload
+     * @param {string|boolean} [url]             The new url to load, it's optional
+     * @param {boolean}        [notTriggerEvent] Skip trigger event
+     * @return {void}
+     */
+    function reloadApp(appCode, url, notTriggerEvent)
+    {
+        var app = openedApps[appCode];
+        if(!app) return;
+
+        if(url === true) url = app.url;
+        var iframe = app.$iframe[0];
+
+        try
+        {
+            if(url) iframe.contentWindow.location.assign(url);
+            else iframe.contentWindow.location.reload(true);
+        }
+        catch(_)
+        {
+            iframe.src = url || app.url || iframe.src;
+        }
+
+        if(!notTriggerEvent) app.$app.trigger('reloadapp', app);
+    }
+
+    /**
+     * Update browser url and title for the given app
+     * @param {string} appCode         The app code of target app to update url
+     * @param {string|boolean} [url]   The new url of the app
+     * @param {string|boolean} [title] The new title of the app
+     * @param {boolean}        [push]  Use push instead of replace
+     * @return {void}
+     */
+    function updateAppUrl(appCode, url, title, push)
+    {
+        // if(window.TUTORIAL) return;
+        var app = openedApps[appCode];
+        if(!app || lastOpenedApp !== appCode) return;
+
+        if(url) app.appUrl = url;
+        else url = app.appUrl || app.url;
+        if(title) app.appTitle = title;
+        else title = app.appTitle || app.text;
+
+        if(url && url.indexOf('#') < 0 && getAppCodeFromUrl(url) !== appCode) url = url + '#app=' + appCode;
+        if(location.href !== url)
+        {
+            history[push ? 'pushState' : 'replaceState']({app: appCode}, title, url);
+        }
+        document.title = title;
+    }
+
+    /* Bind helper methods to global object "$.apps" */
+    $.apps = window.apps =
+    {
+        show:       showTab,
+        open:       openTab,
+        hide:       hideTab,
+        toggle:     toggleApp,
+        close:      closeApp,
+        reload:     reloadApp,
+        updateUrl:  updateAppUrl,
+        getAppCode: getAppCodeFromUrl,
+        getLastApp: getLastApp,
+        openedApps: openedApps,
+        appsMap:    appsMap
+    };
+
+    /**
+     * Refresh more menu in #menuNav
+     * @return {void}
+     */
+    function refreshMoreMenu()
+    {
+        var $mainNav       = $('#menuMainNav');
+        var $list          = $('#menuMoreList');
+        var $menuNav       = $('#menuNav');
+        var $menuItems     = $mainNav.children('li');
+        var itemHeight     = $menuItems.first().outerHeight();
+        var maxHeight      = $menuNav.height() - 10;
+        var showMoreMenu   = false;
+        var currentHeight  = itemHeight;
+        var moreMenuHeight = 12;
+
+        $menuItems.each(function()
+        {
+            var $item     = $(this);
+            var isDivider = $item.hasClass('divider');
+            var height    = isDivider ? 17 : itemHeight;
+            currentHeight += height;
+
+            if(currentHeight > maxHeight)
+            {
+                $item.addClass('hidden');
+                if(!showMoreMenu)
+                {
+                    showMoreMenu = true;
+                    $list.empty();
+
+                    var $prevItem = $item.prev();
+                    if($prevItem.hasClass('divider')) $prevItem.addClass('hidden');
+
+                    if(isDivider) return;
+                }
+                moreMenuHeight += isDivider ? 13 : 32;
+                $list.append($item.clone().removeClass('hidden'));
+            }
+            else
+            {
+                $item.removeClass('hidden');
+            }
+        });
+
+        /* The magic number "111" is the space between dropdown trigger
+           btn and the bottom of screen */
+        var listStyle = {maxHeight: 'initial', top: moreMenuHeight > 111 ? 111 - moreMenuHeight : ''};
+        if($list[0].getBoundingClientRect)
+        {
+            var btnBounding = $list.prev('a')[0].getBoundingClientRect();
+            if(btnBounding.height)
+            {
+                var winHeight = $(window).height();
+                if(winHeight < moreMenuHeight)
+                {
+                    listStyle.maxHeight = winHeight;
+                    listStyle.overflow = 'auto';
+                    listStyle.top = 5 - btnBounding.top;
+                }
+                else if(moreMenuHeight > (winHeight - btnBounding.top))
+                {
+                    listStyle.top = winHeight - btnBounding.top - moreMenuHeight + 5;
+                }
+            }
+        }
+        $list.css(listStyle);
+        $menuNav.toggleClass('show-more-nav', showMoreMenu);
+
+        if(showMoreMenu && !$list.data('listened-click'))
+        {
+            $list.data('listened-click', true).on('click', function()
+            {
+                $list.addClass('hidden');
+                setTimeout(function(){$list.removeClass('hidden')}, 200);
+            });
+        }
+    }
+
+    /* Init after current page load */
+    $(function()
+    {
+        initAppsMenu();
+
+        /* Bind events */
+        $(document).on('click', '.open-in-app,.show-in-app', function(e)
+        {
+            var $link = $(this);
+            if($link.is('[data-modal],[data-toggle][data-toggle!="tooltip"],.iframe,.not-in-app')) return;
+            var url = $link.hasClass('show-in-app') ? '' : ($link.attr('href') || $link.data('url'));
+            if(url && url.indexOf('onlybody=yes') > 0) return;
+            if(openTab(url, $link.data('app')))
+            {
+                e.preventDefault();
+                if($link.closest('#userNav').length)
+                {
+                    var $menu = $('#userNav .dropdown-menu').addClass('hidden');
+                    setTimeout(function(){$menu.removeClass('hidden')}, 200);
+                }
+            }
+        }).on('contextmenu', '.open-in-app,.show-in-app', function(event)
+        {
+            var $btn  = $(this);
+            var appCode = $btn.data('app');
+            if(!appCode) return;
+
+            var lang  = window.appsLang;
+            var app   = openedApps[appCode];
+            var items = [{label: lang.open, disabled: app && lastOpenedApp === appCode, onClick: function(){showTab(appCode)}}];
+            if(app)
+            {
+                items.push({label: lang.reload, onClick: function(){reloadApp(appCode)}});
+                if(appCode !== 'my') items.push({label: lang.close, onClick: function(){closeApp(appCode)}});
+            }
+
+            var options = {event: event, onClickItem: function(_item, _$item, e){e.preventDefault();}};
+            var pos = $btn.data('pos');
+            if(pos)
+            {
+                var bounding = $btn.closest('li')[0].getBoundingClientRect();
+                if(pos === 'bar')
+                {
+                    options.x = bounding.left;
+                    options.y = bounding.top - (appCode === 'my' ? 65 : 92);
+                }
+                else
+                {
+                    options.x = bounding.right - 10;
+                    options.y = bounding.top;
+                }
+            }
+            var $dropdown = $btn.closest('.dropdown');
+            if($dropdown.length)
+            {
+                $dropdown.addClass('open');
+                options.onHide = function(){$dropdown.removeClass('open');}
+            }
+
+            $.zui.ContextMenu.show(items, options);
+            event.preventDefault();
+        });
+
+        window.addEventListener('popstate', function(event)
+        {
+            if(event.state && lastOpenedApp !== event.state.app) openTab(event.state.app);
+        });
+
+        /* Redirect or open default app after document load */
+        var defaultOpenUrl = window.defaultOpen;
+        if(!defaultOpenUrl && location.hash.indexOf('#app=') === 0)
+        {
+            defaultOpenUrl = decodeURIComponent(location.hash.substr(5));
+        }
+
+        openTab(defaultOpenUrl ? defaultOpenUrl : defaultApp);
+
+        /* Refresh more menu on window resize */
+        $(window).on('resize', refreshMoreMenu);
+        refreshMoreMenu();
+        setTimeout(refreshMoreMenu, 500);
+    });
+}());
+
+(function()
+{
+    $.toggleMenu = function(toggle)
+    {
+        var $body = $('body');
+        if (toggle === undefined) toggle = $body.hasClass('menu-hide');
+        $body.toggleClass('menu-hide', !toggle).toggleClass('menu-show', !!toggle);
+        $.cookie('hideMenu', String(!toggle), {expires: config.cookieLife, path: config.webRoot});
+    };
+
+    $(function()
+    {
+        /* Click to show more. */
+        $(document).on('click', '.menu-toggle', function()
+        {
+            $.toggleMenu();
+            var $menu = $('#userNav .dropdown-menu').addClass('hidden');
+            setTimeout(function(){$menu.removeClass('hidden')}, 200);
+        });
+
+        $('.menu-toggle').each(function()
+        {
+            $(this).attr('data-toggle', 'tooltip').tooltip({container: 'body', placement: 'right', tipClass: 'menu-tip', title: function()
+            {
+                return $(this).data($('body').hasClass('menu-hide') ? 'unfoldText' : 'collapseText');
+            }});
+        });
+    });
+}());
+
+$.extend(
+{
+    gotoObject:function()
+    {
+        objectType  = $('#searchType').attr('value');
+        objectValue = $('#globalSearchInput').attr('value');
+
+        if(objectType && objectValue)
+        {
+            var reg = /[^0-9]/;
+            if(reg.test(objectValue) || objectType == 'all')
+            {
+                var searchLink = createLink('search', 'index') + (config.requestType == 'PATH_INFO' ? '?' : '&') + 'words=' + objectValue;
+                $.apps.open(searchLink);
+            }
+            else
+            {
+                var types        = objectType.split('-');
+                var searchModule = types[0];
+                var searchMethod = typeof(types[1]) == 'undefined' ? 'view' : types[1];
+                var searchLink   = createLink(searchModule, searchMethod, "id=" + objectValue);
+                var assetType    = 'story,issue,risk,opportunity,doc';
+                if(assetType.indexOf(searchModule) > -1)
+                {
+                    var link = createLink('index', 'ajaxGetViewMethod' , 'objectID=' + objectValue + '&objectType=' + searchModule);
+                    $.get(link, function(data)
+                    {
+                        if(data)
+                        {
+                            searchModule = 'assetlib';
+                            searchMethod = data;
+                            searchLink   = createLink(searchModule, searchMethod, "id=" + objectValue);
+                        }
+                        $.apps.open(searchLink);
+                    });
+                }
+                else
+                {
+                    $.apps.open(searchLink);
+                }
+            }
+
+            $.post(createLink('index', 'ajaxClearObjectSession'), {objectType: objectType});
+            $('#globalSearchInput').click();
+        }
+    }
+});
+
+/* Initialize global search. */
+$(function()
+{
+    var reg           = /[^0-9]/;
+    var $searchbox    = $('#searchbox');
+    var $typeSelector = $searchbox.find('.input-group-btn');
+    var $dropmenu     = $typeSelector.children('.dropdown-menu');
+    var $searchQuery  = $('#globalSearchInput');
+
+    var toggleMenu = function(show)
+    {
+        $searchbox.toggleClass('open', show);
+        $dropmenu.toggleClass('show', show).toggleClass('in', show);
+        if(show) $dropmenu.show();
+        else $dropmenu.hide();
+    };
+
+    var hideMenu = function(){toggleMenu(false);};
+
+    var refreshMenu = function()
+    {
+        var val        = $searchQuery.val();
+        var searchType = changeSearchObject();
+        if(val !== null && val !== "")
+        {
+            var isQuickGo = !reg.test(val);
+            $dropmenu.toggleClass('show-quick-go', isQuickGo);
+            var $typeAll = $dropmenu.find('li.search-type-all > a');
+            $typeAll.text(searchAB + ' ' + val);
+            if(isQuickGo)
+            {
+                $typeAll.closest('li').removeClass('active');
+                $dropmenu.removeClass('with-active').find('li:not(.search-type-all) > a').each(function()
+                {
+                    var $this = $(this);
+                    var isActiveType = $this.data('value') === searchType && searchType !== 'all';
+                    $this.closest('li').toggleClass('selected active', isActiveType);
+                    $this.text($this.data('name') + ' #' + (val.length > 7 ? (val.substr(0, 7) + '...') : val));
+                    if(isActiveType) $dropmenu.addClass('with-active');
+                });
+            }
+            else
+            {
+                $dropmenu.find('li.active').removeClass('active');
+                $typeAll.closest('li').addClass('active');
+            }
+            toggleMenu(true);
+        }
+        else
+        {
+            hideMenu();
+        }
+    };
+
+    $dropmenu = $dropmenu.appendTo($searchbox);
+    $dropmenu.on('click', 'a', function(e)
+    {
+        $('#searchType').val($(this).data('value'));
+        $.gotoObject();
+        e.stopPropagation();
+    }).find('li > a').each(function()
+    {
+        var $this = $(this);
+        $this.attr('data-name', $this.text());
+    });
+
+    var $allItem = $dropmenu.find('li > a[data-value="all"]');
+    if($allItem.length)
+    {
+        $allItem.closest('li').addClass('search-type-all').prependTo($dropmenu);
+    }
+
+    $searchQuery.on('change keyup paste input propertychange', refreshMenu).on('focus', function()
+    {
+        setTimeout(refreshMenu, 300);
+    });
+
+    $(document).on('click', hideMenu);
+
+    $(document).on('click', function()
+    {
+        $("#upgradeContent").hide();
+    });
+
+    $("#upgradeContent").click(function(event)
+    {
+        event.stopPropagation();
+    });
+
+    $("#proLink").click(function(event)
+    {
+        var $upgradeContent = $('#upgradeContent').toggle();
+        if(!$upgradeContent.is(':hidden'))
+        {
+            getLatestVersion();
+            event.stopPropagation();
+        }
+    });
+
+    $('.has-avatar').hover(function(event)
+    {
+        $('.contextmenu').attr('class', 'contextmenu');
+        $('.contextmenu-menu').attr('class', 'contextmenu-menu fade');
+    });
+
+    $('#bars').mousedown(function()
+    {
+        $('#globalSearchInput').click();
+    });
+});
+
+/* Change the search object according to the module and method. */
+function changeSearchObject()
+{
+    var appInfo = $.apps.getLastApp();
+    var appPageModuleName = appInfo.$iframe[0].contentWindow.config.currentModule;
+    var appPageMethodName = appInfo.$iframe[0].contentWindow.config.currentMethod;
+
+    var searchType = appPageModuleName;
+    if(appPageModuleName == 'product' && appPageMethodName == 'browse') var searchType = 'story';
+
+    var projectMethod = 'task|story|bug|build';
+    if(appPageModuleName == 'project' && projectMethod.indexOf(appPageMethodName) != -1) var searchType = appPageMethodName;
+
+    if(appPageModuleName == 'my' || appPageModuleName == 'user') var searchType = appPageMethodName;
+
+    if(searchObjectList.indexOf(',' + searchType + ',') == -1) var searchType = 'bug';
+
+    if(searchType == 'program')    var searchType = 'program-product';
+    if(searchType == 'deploystep') var searchType = 'deploy-viewstep';
+
+    $("#searchType").val(searchType);
+    $('#searchTypeMenu li:first').attr('class', 'search-type-all');
+
+    return searchType;
+}
+
+function getLatestVersion()
+{
+    $('#globalSearchInput').click();
+    $('#upgradeContent').toggle();
+}
+if(window.navigator.userAgent.indexOf('xuanxuan') > 0)
+{
+    $('html').addClass('xxc-embed');
+
+    /** Update zentao client app menu */
+    function updateAppMenu()
+    {
+        const menuItems = appsMenuItems.map(function(item)
+        {
+            if (item === 'divider') return '-';
+            var $title = $('<div>' + item.title + '</div>');
+            return [item.code, ($title.find('.icon').attr('class') || '').replace('icon ', ''),$title.text().trim()];
+        });
+        window.open('xxc://extension.zentao-integrated.updateAppMenu/' + encodeURIComponent(JSON.stringify(menuItems)));
+    }
+
+    updateAppMenu();
+
+    $(document).on('showapp', function(e, app)
+    {
+        window.open('xxc://extension.zentao-integrated.activeAppMenuItem/' + app.code);
+    });
+}
+</script>
+
+
+
+<style>
+#chatBtn {padding: 3px; position: relative;}
+#chatBtn .icon {font-size: 24px;}
+#chatNoticeBadge {position: absolute; top: -4px; right: -2px; line-height: 14px; height: 14px; width: 14px; text-align: center; display: block; font-size: 12px; border-radius: 50%; opacity: 0; transform: scale(0); transition: .2s; transition-property: transform, opacity;}
+#chatNoticeBadge.show {opacity: 1; transform: scale(1);}
+#xx-embed-container {bottom: 40px!important; z-index: 1010!important;}
+#xx-embed-container .xx-embed-has-animation {transition: min-width .5s ease-out, min-height .5s ease-out, transform, opacity!important;}
+#xx-embed-container .xx-embed {width: 280px; height: 100%; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06)!important;}
+#xx-embed-container .xx-embed.xx-embed-hidden,
+#xx-embed-container .xx-embed.xx-embed-collapsed {width: 280px!important; height: 100%!important; opacity: .7; pointer-events: none; transform: translateY(100%); display: block!important;}
+#xx-embed-container .xx-embed.has-chat-view {min-width: 1000px!important;}
+#xx-embed-container .xx-embed-body {min-height: initial!important;}
+</style>
+<script src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/sdk.min.js.下载"></script>
+<script>xuanConfig = {"clientUrl":"data\/xuanxuan\/web\/","server":"http:\/\/192.168.20.219","account":"wangbowen","authKey":"de5a4e9f2e2d3cd616f7308d4d4bb7e8fafd2398a78e7ac3816b9476daa15f9c","debug":false};</script>
+<script>lang = "zh-cn";</script>
+<script>
+/* Toggle xuan client popover */
+function toggleXuanClient()
+{
+    if(!window.xuan.shown) window.xuan.show();
+    else window.xuan.toggleCollapse();
+}
+
+/* Handle chat notice change */
+function handleXuanNoticeChange(notice)
+{
+    $('#chatNoticeBadge').toggleClass('show', !!notice.count).text(notice.count);
+}
+
+/* Handle client route change */
+function handleXuanRouteChange(route)
+{
+    var hasShowChatView = route.indexOf('#/chats/') === 0 && !!route.split('/')[3];
+    $('#' + window.xuan.id).toggleClass('has-chat-view', hasShowChatView);
+}
+
+/* Set client global options*/
+Xuanxuan.setGlobalOptions(
+{
+    position:      'right',
+    width:         280,
+    preload:       true,
+    showHeader:    false,
+    onNotice:      handleXuanNoticeChange,
+    onRouteChange: handleXuanRouteChange,
+    lang:          lang
+});
+
+$(function() {
+    /* Create chat button */
+    var $chatBtn = $('<a href="javascript:void(0)" id="chatBtn" class="btn btn-link"><i class="text-primary icon icon-chat-solid"></i><span class="badge bg-red" id="chatNoticeBadge"></span></a>');
+    $chatBtn.insertBefore('#globalSearchDiv').on('click', toggleXuanClient);
+});
+
+/* Create client instance */
+window.xuan = new Xuanxuan(xuanConfig);
+
+/* Hide xuan popover on click page */
+$(document).on('click', function(e)
+{
+    if(!window.xuan.shown || $(e.target).closest('#xx-embed-container,#chatBtn').length) return;
+    window.xuan.hide();
+});
+</script><div id="xx-embed-container"><style>#xx-embed-container {position:fixed;z-index:1200;top:0;bottom:0;right:0;left:0;justify-content:center;align-items:center;pointer-events:none}
+#xx-embed-container .xx-embed {position:absolute;pointer-events:auto;background-color:#fff;border:1px solid #ddd;box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);display:flex;flex-direction:column;}
+#xx-embed-container .xx-embed-has-animation {transition:.2s;transition-property:width,height,left,top,bottom,right;}
+#xx-embed-container .xx-embed-header {flex:none;display:flex;flex-direction:row;align-items:center;justify-content:space-between;background-color:#f1f1f1;user-select:none;border-bottom: 1px solid #ddd;}
+#xx-embed-container .xx-embed-hide-header .xx-embed-header {display: none!important}
+#xx-embed-container .xx-embed-title {padding:0 5px;font-size:13px;opacity:.7;font-weight:bold; display: flex; align-items:center;}
+#xx-embed-container .xx-embed-notice-badge {line-height: 14px; min-width: 14px; padding: 0 4px; border-radius: 7px; background-color: #ff0040; color: #fff; font-size:12px;box-sizing: border-box;text-align:center;margin-right:4px}
+#xx-embed-container .xx-embed-nav {display:flex;flex-direction:row;align-items:center;}
+#xx-embed-container .xx-embed-btn {display:flex;width:24px;height:24px;align-items:center;justify-content:center;opacity:.5;cursor:pointer}
+#xx-embed-container .xx-embed-btn:hover {opacity:1;background-color:rgba(0,0,0,.1)}
+#xx-embed-container .xx-embed-btn-expand {display:none}
+#xx-embed-container .xx-embed-collapsed .xx-embed-btn-expand {display:block}
+#xx-embed-container .xx-embed-collapsed .xx-embed-btn-collapse {display:none}
+#xx-embed-container .xx-embed-collapsed {height:24px!important;width:200px!important}
+#xx-embed-container .xx-embed-collapsed .xx-embed-body {display:none!important}
+#xx-embed-container .xx-embed-hidden {display:none!important}
+#xx-embed-container .xx-embed-body {flex:auto;position:relative}
+#xx-embed-container .xx-embed-iframe {width:100%;height:100%;position:absolute}
+#xx-embed-container .xx-embed-close-confirm {display:none;position:absolute;left:0;top:0;right:0;bottom:0;z-index:10;background-color:rgba(0,0,0,0.5);}
+#xx-embed-container .xx-embed-close-confirm-shown .xx-embed-close-confirm {display:flex;justify-content:center;align-items:center;}
+#xx-embed-container .xx-embed-close-confirm-dialog {background-color:#fff;padding:20px 20px;box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);border-radius:4px}
+#xx-embed-container .xx-embed-close-confirm-text {margin-bottom: 15px}
+#xx-embed-container .xx-embed-close-confirm-btn {display: inline-block; padding: 5px 10px; margin-right: 10px; background-color: #f1f1f1; color: #A3A2BC; border: 1px solid #A3A2BC; min-width: 80px; text-align: center;border-radius:4px; cursor:pointer}
+#xx-embed-container .xx-embed-close-confirm-btn-confirm {background-color: #6129c4; color: #fff; border-color: #6129c4;}</style><div id="xx-losd0ul5" class="xx-embed xx-embed-hidden xx-embed-hide-header xx-embed-has-animation"><header class="xx-embed-header">
+<div class="xx-embed-title"><span class="xx-embed-notice-badge" style="display:none"></span><span class="xx-embed-title-text">喧喧</span></div>
+<nav class="xx-embed-nav">
+<a title="展开" class="xx-embed-btn xx-embed-btn-expand">
+<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg>
+</a>
+<a title="收起" class="xx-embed-btn xx-embed-btn-collapse">
+<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg>
+</a>
+<a title="关闭" class="xx-embed-btn xx-embed-btn-close">
+<svg style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+</a>
+</nav>
+</header>
+<div class="xx-embed-body">
+<iframe class="xx-embed-iframe" id="xx-embed-iframe-xx-losd0ul5" name="xx-embed-iframe-xx-losd0ul5" src="./CASE #14067 Git渠道文件外发，文件类型与敏感词验证（一） - Windows客户端4.0 - 禅道_files/saved_resource(4).html" frameborder="no" allowtransparency="true" scrolling="auto" hidefocus=""></iframe>
+</div>
+<div class="xx-embed-close-confirm">
+<div class="xx-embed-close-confirm-dialog">
+<div class="xx-embed-close-confirm-text">
+要退出聊天吗？
+</div>
+<div class="xx-embed-close-confirm-btns">
+<a class="xx-embed-close-confirm-btn xx-embed-close-confirm-btn-confirm">
+确定
+</a>
+<a class="xx-embed-close-confirm-btn xx-embed-close-confirm-btn-cancel">
+取消
+</a>
+</div>
+</div>
+</div><style>#xx-losd0ul5 {width:280px;height:100%;bottom:0;right:0}
+#xx-losd0ul5 .xx-embed-body {min-width: 280px; min-height: 456px}</style></div></div>
+</body></html>
