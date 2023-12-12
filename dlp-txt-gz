@@ -1,0 +1,23 @@
+"data":
+            {
+                "message": [],
+                "total": 0,
+                "api_path":"{}".format(user_name),
+                "name":"张三，李四，王五",
+                "phone": "14834113307,13868645867",
+                "phone2":"13919996470,18906503900",
+                "email":"123@163.com,google@asdas.com",
+                "email2":"456@163.com,dsadfag@qq.com",
+                "ID":"110101199108157236,13010319980426041X",
+                "Bank_card":"6222027183530478298,6222024493338009203",
+                "yapi":"Mockjs",
+                "yapi_geren":"yapi",
+                "yapi_weizhi":"username",
+                "yapi_shebei":"test",
+                "yapi_qiye":"enterprise",
+                "yapi_all":"python",
+                "yapi_api":"mock",
+                "YApi":"YApi",
+                "test-user":"test-user",
+                "ruomima":"111,222,333,444,555,666,777,123456,"
+            }
